@@ -11,4 +11,4 @@ build/main.o: src/main.cpp
 	g++ -c src/main.cpp -o build/main.o
 
 build/indice_invertido.o: src/indice_invertido.cpp src/indice_invertido.h
-	g++ -c src/indice_invertido.cpp -o build/indice_invertido.o
+	g++ -c -std=c++17 src/indice_invertido.cpp -o build/indice_invertido.o
