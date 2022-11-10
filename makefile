@@ -1,7 +1,7 @@
-exe/main: build/main.o build/indice_invertido.o
-	g++ build/main.o build/indice_invertido.o -o exe/main
+main: build/main.o build/indice_invertido.o
+	g++ build/main.o build/indice_invertido.o -o main
 	
-exe/main_DB: build/main.o build/indice_invertido.o
+main_DB: build/main.o build/indice_invertido.o
 	g++ -g build/main.o build/indice_invertido.o -o main_DB
 
 testes/teste: build/indice_invertido.o testes/indice_invertido_teste.cpp
