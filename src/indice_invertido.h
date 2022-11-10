@@ -16,9 +16,22 @@ class Indice_Invertido {
     /// nomes dos documentos que contêm as palavras.
     set<string> busca(string palavra);
 
+    /// @brief Insere uma palavra e o arquivo que a pertenceno índice. Para 
+    /// finalidades de teste.
+    /// @param palavra Palavra a ser inserida.
+    /// @param documento Documento que contém a palavra.
+    void inserir(string palavra, string documento);
+
     private:
     
     /// @brief Mapeia cada palavra para o conjunto de arquivos
     /// que contêm essa palavra.
     map<string, set<string>> indice_;
 };
+
+/// @brief Normaliza uma palavra, i.e, tira os caracteres não alfabéticos e deixa
+/// todos as letras minúsculas.
+/// @param palavra Palavra a ser normalizada.
+/// @return Retorna uma string composta estritamente por letras minúsculas.
+string normalizar(string palavra);
+   
