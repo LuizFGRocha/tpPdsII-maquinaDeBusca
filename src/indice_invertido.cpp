@@ -20,7 +20,7 @@ void Indice_Invertido::constroiIndice(){
 
     for (auto const& dir_entry : filesystem::directory_iterator{documentos}) {
         ifstream fin(dir_entry.path());
-        while(getline(fin, palavra))
+        while(fin >> palavra)
             inserir(normalizar(palavra), dir_entry.path().filename());
     }
 }
