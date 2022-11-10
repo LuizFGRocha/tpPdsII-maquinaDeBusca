@@ -14,7 +14,7 @@ void Indice_Invertido::inserir(string palavra, string documento) {
     indice_[palavra].insert(documento);
 }
 
-void Indice_Inverso::constroiIndice(){
+void Indice_Invertido::constroiIndice(){
     const filesystem::path documentos{"./documentos"};
     string palavra;
 
