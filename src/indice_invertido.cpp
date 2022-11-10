@@ -14,15 +14,14 @@ void Indice_Invertido::inserir(string palavra, string documento) {
     indice_[palavra].insert(documento);
 }
 
-void Indice_Invertido::constroiIndice() {
-  const filesystem::path documentos{"./documentos"};
-    ifstream {documentos};
-    string line;
+void Indice_Inverso::constroiIndice(){
+    const filesystem::path documentos{"./documentos"};
+    string palavra;
 
     for (auto const& dir_entry : filesystem::directory_iterator{documentos}) {
-        while(getline(dir_entry, line))
-            for(auto palavra : line)
-                inserir(palavra, dir_entry);
+        ifstream fin(dir_entry.path());
+        while(getline(fin, palavra))
+            inserir(normalizar(palavra), arquivo.path().filename());
     }
 }
 
