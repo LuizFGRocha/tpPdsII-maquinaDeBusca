@@ -3,7 +3,7 @@
 #include <string>
 #include <map>
 #include <fstream>
-
+#include <vector>
 using namespace std;
 
 set<string> Indice_Invertido::busca(string palavra) {
@@ -48,7 +48,7 @@ string intersecao(vector <string>& setDocs, int quantidade){
     for (auto const& arquivo : filesystem::directory_iterator{"./documentos"})
         docs.insert(pair <string, int> (arquivo.path().filename(), 0));
         
-    for(auto x : SetDocs){
+    for(auto x : setDocs){
         for(auto it = docs.begin(); it != docs.end(); it++){
             if(it->first == x){
                 it->second++;
