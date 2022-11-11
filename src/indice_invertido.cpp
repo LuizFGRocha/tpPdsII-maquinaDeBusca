@@ -42,3 +42,22 @@ string normalizar(string palavra) {
 
     return normalizada;
 }
+
+string intersecao(vector <string>& setDocs, int quantidade){
+    map <string, int> docs;
+    for (auto const& arquivo : filesystem::directory_iterator{"./documentos"})
+        docs.insert(pair <string, int> (arquivo.path().filename(), 0));
+        
+    for(auto x : SetDocs){
+        for(auto it = docs.begin(); it != docs.end(); it++){
+            if(it->first == x){
+                it->second++;
+                break;
+            }
+        }
+    }
+    for(auto it = docs.begin(); it != docs.end(); it++){
+        if(it-> second == quantidade)
+            return it->first;
+    }
+}
