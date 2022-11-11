@@ -22,6 +22,8 @@ class Indice_Invertido {
     /// @param documento Documento que contém a palavra.
     void inserir(string palavra, string documento);
 
+    void constroiIndice();
+
     private:
     
     /// @brief Mapeia cada palavra para o conjunto de arquivos
