@@ -7,6 +7,7 @@
 TEST_CASE("string normalizar(string palavra)") {
     CHECK(normalizar("Aa??::;.;.;Ee---!!!!??-84875461") == "aaee");
     CHECK(normalizar("546876513213!!!!!!???????????.,.,;.,;.,;.,") == "");
+    CHECK(normalizar("Guarda-Chuva") == "guardachuva");
 }
 
 TEST_CASE("set<string> busca(string palavra)") {

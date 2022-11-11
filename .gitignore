@@ -1,11 +1,6 @@
 # Prerequisites
 *.d
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
 
 # Precompiled Headers
 *.gch
@@ -41,3 +36,9 @@
 
 # json files (settings and tasks)
 *.json
+
+# Compiled Object files
+*.slo
+*.lo
+*.obj
+*.o
