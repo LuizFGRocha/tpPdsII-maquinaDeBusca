@@ -7,9 +7,7 @@ using namespace std;
 class Indice_Invertido {
 
     public:
-
-    // TODO: inserir método para inserir no índice.
-
+    
     /// @brief Busca os documentos em ./documentos que contenham dada palavra.
     /// @param palavra Palavra a ser procurada nos documentos.
     /// @return Retorna o conjunto de strings (set<string>) correspondentes aos
@@ -22,6 +20,9 @@ class Indice_Invertido {
     /// @param documento Documento que contém a palavra.
     void inserir(string palavra, string documento);
 
+    /// @brief Constrói o índice invertido a partir dos documentos na pasta
+    /// ./documentos. Cada palavra contida na pasta como um todo é associada
+    /// a um conjunto formado pelos nomes dos documentos que a possuem.
     void constroiIndice();
 
     private:
