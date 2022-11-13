@@ -4,6 +4,7 @@
 #include <map>
 #include <fstream>
 #include <vector>
+#include <utility>
 using namespace std;
 
 set<string> Indice_Invertido::busca(string palavra) {
@@ -43,21 +44,24 @@ string normalizar(string palavra) {
     return normalizada;
 }
 
-string intersecao(vector <string>& setDocs, int quantidade){
+set <string> intersecao(vector <string>& setDocs, int wordsAmount){
     map <string, int> docs;
+    set <string> setIntersecao;
+    
     for (auto const& arquivo : filesystem::directory_iterator{"./documentos"})
         docs.insert(pair <string, int> (arquivo.path().filename(), 0));
         
-    for(auto x : setDocs){
+    for(auto value : setDocs){
         for(auto it = docs.begin(); it != docs.end(); it++){
-            if(it->first == x){
+            if(it->first == value){
                 it->second++;
                 break;
             }
         }
     }
     for(auto it = docs.begin(); it != docs.end(); it++){
-        if(it-> second == quantidade)
-            return it->first;
+        if(it->second == wordsAmount)
+            setIntersecao.insert(it->first);
     }
+    return setIntersecao;
 }
