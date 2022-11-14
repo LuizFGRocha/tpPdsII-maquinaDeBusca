@@ -25,6 +25,13 @@ class Indice_Invertido {
     /// ./documentos. Cada palavra contida na pasta como um todo é associada
     /// a um conjunto formado pelos nomes dos documentos que a possuem.
     void constroiIndice();
+    
+    /// @brief Pesquisa a string fornecida.
+    /// @param entrada String a ser pesquisada. Deve ter pelo menos uma palavra
+    /// contendo pelo menos um caractere alfabético.
+    /// @return Retorna um conjunto de strings contendo o nome dos documentos
+    /// que contêm todas as palavras pesquisadas.
+    set<string> pesquisa(string entrada); 
 
     private:
     
