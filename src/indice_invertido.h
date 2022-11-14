@@ -1,6 +1,7 @@
 #include <map>
 #include <set>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -37,4 +38,5 @@ class Indice_Invertido {
 /// @param palavra Palavra a ser normalizada.
 /// @return Retorna uma string composta estritamente por letras minúsculas.
 string normalizar(string palavra);
-   
+
+set<string> intersecao(vector <string>& setDocs, int wordsAmount);
