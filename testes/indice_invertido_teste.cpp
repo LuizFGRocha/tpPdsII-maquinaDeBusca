@@ -1,6 +1,8 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
 #include <set>
+#include <string>
+#include <vector>
 
 #include "indice_invertido.h"
 
@@ -28,4 +30,46 @@ TEST_CASE("set<string> busca(string palavra)") {
     CHECK(google.busca("cachorro") == set<string>{"Documento 1", "Documento 2", "Documento 3"});
     CHECK(google.busca("pato") == set<string>{"Documento 2", "Documento 3", "Documento 4"});
     CHECK(google.busca("raposa") == set<string>{"Documento 2", "Documento 4", "Documento 7"}); 
+}
+
+// Este teste assume que na pasta onde o teste é executado há uma pasta ./documentos
+// idêntica à que foi usada durante a sua implementação.
+TEST_CASE("set<string> intersecao(vector <string>& setDocs, int wordsAmount)") {
+    Indice_Invertido google;
+    google.constroiIndice();
+
+
+    vector<set<string>> vConjuntos;
+    vConjuntos.push_back(google.busca("anyone"));
+    vConjuntos.push_back(google.busca("USA"));
+    vConjuntos.push_back(google.busca("map"));
+    // Só o documento d9 possui as três palavras
+
+    vector<string> vPalavras;
+    for (set<string> conjunto : vConjuntos) {
+        for (string palavra : conjunto) {
+            vPalavras.push_back(palavra);
+        }
+    }
+
+    auto resultado = intersecao(vPalavras, 3);
+
+    CHECK(resultado == set<string>{"d9.txt"});
+
+
+    vConjuntos.clear();
+    vConjuntos.push_back(google.busca("anyone")); // d9, d11, d12, d17, d18, d21, d26, d30
+    vConjuntos.push_back(google.busca("know")); // d3, d5, d9, d11, d12, d15, d17, d21, d22, d24
+    // A interseção dos conjuntos é d9, d11, d12, d17 e d21
+
+    vPalavras.clear();
+    for (set<string> conjunto : vConjuntos) {
+        for (string palavra : conjunto) {
+            vPalavras.push_back(palavra);
+        }
+    }
+
+    resultado = intersecao(vPalavras, 2);
+
+    CHECK(resultado == set<string>{"d9.txt", "d11.txt", "d12.txt", "d17.txt", "d21.txt"});
 }
