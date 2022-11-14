@@ -25,6 +25,12 @@ class Indice_Invertido {
     /// ./documentos. Cada palavra contida na pasta como um todo é associada
     /// a um conjunto formado pelos nomes dos documentos que a possuem.
     void constroiIndice();
+    
+    /// @brief Pesquisa a string fornecida.
+    /// @param entrada String a ser pesquisada. Deve ter pelo menos uma palavra
+    /// contendo pelo menos um caractere alfabético.
+    /// @return Retorna um conjunto de strings contendo o nome dos documentos
+    /// que contêm todas as palavras pesquisadas.
     set<string> pesquisa(string entrada); 
 
     private:
@@ -39,4 +45,9 @@ class Indice_Invertido {
 /// @param palavra Palavra a ser normalizada.
 /// @return Retorna uma string composta estritamente por letras minúsculas.
 string normalizar(string palavra);
-set <string> intersecao(vector <string>& setDocs, int wordsAmount);
+
+/// @brief Cria um conjunto responsável por armazenar os arquivos que
+/// estejam associados às ocorrências das palavras pesquisadas.
+/// @param setDocs Contém todos os arquivos associados a cada palavra pesquisada.
+/// @param wordsAmount Quantidade total de palavras pesquisadas.
+set<string> intersecao(vector <string>& setDocs, int wordsAmount);
