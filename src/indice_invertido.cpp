@@ -1,11 +1,10 @@
 #include "indice_invertido.h"
+
 #include <iostream>
 #include <filesystem>
-#include <string>
-#include <map>
 #include <fstream>
-#include <vector>
 #include <utility>
+
 using namespace std;
 
 set<string> Indice_Invertido::busca(string palavra) {
