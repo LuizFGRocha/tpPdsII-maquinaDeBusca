@@ -39,4 +39,8 @@ class Indice_Invertido {
 /// @return Retorna uma string composta estritamente por letras minúsculas.
 string normalizar(string palavra);
 
+/// @brief Cria um conjunto responsável por armazenar os arquivos que
+/// estejam associados às ocorrências das palavras pesquisadas.
+/// @param setDocs Contém todos os arquivos associados a cada palavra pesquisada.
+/// @param wordsAmount Quantidade total de palavras pesquisadas.
 set<string> intersecao(vector <string>& setDocs, int wordsAmount);
