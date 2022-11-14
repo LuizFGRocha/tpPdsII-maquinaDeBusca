@@ -65,3 +65,32 @@ set <string> intersecao(vector <string>& setDocs, int wordsAmount){
     }
     return setIntersecao;
 }
+
+set<string> Indice_Invertido::pesquisa(string entrada){
+    int nPalavras = 0;
+    vector<string> palavraSepara;
+    istringstream tokenizer { entrada };
+    //string vazia para ser usada na comparação
+    string token;
+
+   while (tokenizer >> token){
+    token = normalizar(token);
+    if(token.size() > 0){
+        nPalavras++;
+        palavraSepara.push_back(token);
+    }
+   }
+    vector<set<string>> vConjuntos;
+    vector<string> vDocumentos;
+    for(string s : palavraSepara){
+        auto z = busca(s);
+        vConjuntos.push_back(z);
+    }
+    for (set<string> conjunto : vConjuntos) {
+        for (string palavra : conjunto) {
+            vDocumentos.push_back(palavra);
+        }
+    }
+   auto resultado = intersecao(vDocumentos, nPalavras);
+   return resultado;
+}
