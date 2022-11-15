@@ -73,3 +73,24 @@ TEST_CASE("set<string> intersecao(vector <string>& setDocs, int wordsAmount)") {
 
     CHECK(resultado == set<string>{"d9.txt", "d11.txt", "d12.txt", "d17.txt", "d21.txt"});
 }
+
+TEST_CASE("set<string> Indice_Invertido::pesquisa(string entrada)"){
+    Indice_Invertido google;
+    google.constroiIndice(); 
+
+    //Testa se o programa lança uma exceção no caso de não haver nenhum caractere válido para a pesquisa
+    CHECK_THROWS(google.pesquisa("- ! 9 8 7"));
+
+    //Testa se o programa consegue pesquisar uma palavra corretamente
+    auto resultado = google.pesquisa("hello");
+    CHECK(resultado == set<string>{"d18.txt", "d20.txt"});
+
+    //Testa se o programa lida bem com uma pesquisa de várias palavras(com caracteres inválidos também)
+    resultado = google.pesquisa("If the world's an oyster, why am I allergic to Mollusks");
+    CHECK(resultado == set<string>{"d5.txt"});
+
+    //Testa se a pesquisa de palavras diferentes, mas com mesma normalização, ocorre corretamente
+    resultado = google.pesquisa("hello");
+    auto resultado2 = google.pesquisa("HeLLo12345");
+    CHECK(resultado == resultado2);
+}
