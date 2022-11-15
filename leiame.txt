@@ -1,0 +1,7 @@
+Ambiente computacional utilizado:
+  O programa foi desenvolvido utilizando o WSL com kernel na versão 5.10.16.3-microsoft-standard-WSL2
+  e com a distribuição Ubuntu 20.04.5 LTS.
+  Compilador: g++ (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0
+
+O programa utiliza a biblioteca <filesystem>, presente na ISO desde o padrão C++17. O makefile passa
+as flags necessárias para que a compilação seja feita com sucesso no ambiente computacional utilizado.
