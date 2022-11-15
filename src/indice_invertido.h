@@ -5,6 +5,10 @@
 
 using namespace std;
 
+/// @brief Exceção lançada quando o método pesquisa() identifica que a frase a
+/// ser pesquisada não contém caracteres alfabéticos.
+struct excecaoPesquisaVazia{};
+
 class Indice_Invertido {
 
     public:
@@ -15,7 +19,7 @@ class Indice_Invertido {
     /// nomes dos documentos que contêm as palavras.
     set<string> busca(string palavra);
 
-    /// @brief Insere uma palavra e o arquivo que a pertenceno índice. Para 
+    /// @brief Insere uma palavra e o arquivo que a pertence no índice. Para 
     /// finalidades de teste.
     /// @param palavra Palavra a ser inserida.
     /// @param documento Documento que contém a palavra.
@@ -47,7 +51,8 @@ class Indice_Invertido {
 string normalizar(string palavra);
 
 /// @brief Cria um conjunto responsável por armazenar os arquivos que
-/// estejam associados às ocorrências das palavras pesquisadas.
+/// estejam associados às ocorrências das palavras pesquisadas. Exemplo de 
+/// utilização nos testes.
 /// @param setDocs Contém todos os arquivos associados a cada palavra pesquisada.
-/// @param wordsAmount Quantidade total de palavras pesquisadas.
+/// @param wordsAmount Quantidade total de palavras válidas pesquisadas.
 set<string> intersecao(vector <string>& setDocs, int wordsAmount);
