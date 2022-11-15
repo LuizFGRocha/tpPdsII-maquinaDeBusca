@@ -20,8 +20,8 @@ int main() {
         cout << "A frase a ser pesquisada não contém caracteres alfabéticos." << endl;
     }
     
-    for(auto a : x){
-        cout << a << endl;
+    for(auto docName : x){
+        cout << docName << endl;
     }
 
     return 0;
