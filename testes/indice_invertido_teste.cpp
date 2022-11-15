@@ -27,6 +27,7 @@ TEST_CASE("set<string> busca(string palavra)") {
     google.inserir("raposa", "Documento 4");
     google.inserir("raposa", "Documento 7");
 
+    // A busca deve retornar o conjunto de documentos em que a palavra está presente
     CHECK(google.busca("cachorro") == set<string>{"Documento 1", "Documento 2", "Documento 3"});
     CHECK(google.busca("pato") == set<string>{"Documento 2", "Documento 3", "Documento 4"});
     CHECK(google.busca("raposa") == set<string>{"Documento 2", "Documento 4", "Documento 7"}); 
@@ -45,6 +46,9 @@ TEST_CASE("set<string> intersecao(vector <string>& setDocs, int wordsAmount)") {
     vConjuntos.push_back(google.busca("map"));
     // Só o documento d9 possui as três palavras
 
+    // Prepara o vetor a ser passado para a interseção. Todos os nomes de documentos
+    // em todos os conjuntos são inseridos no vetor, tantas vezes quanto aparecerem nos
+    // conjuntos. As quantidades de repetições determinam a interseção.
     vector<string> vDocumentos;
     for (set<string> conjunto : vConjuntos) {
         for (string documento : conjunto) {
@@ -52,6 +56,8 @@ TEST_CASE("set<string> intersecao(vector <string>& setDocs, int wordsAmount)") {
         }
     }
 
+    // Passa o vetor e o inteiro 3, que corresponde aos três termos com caracteres
+    // alfabéticos pesquisados.
     auto resultado = intersecao(vDocumentos, 3);
 
     CHECK(resultado == set<string>{"d9.txt"});
@@ -62,6 +68,7 @@ TEST_CASE("set<string> intersecao(vector <string>& setDocs, int wordsAmount)") {
     vConjuntos.push_back(google.busca("know")); // d3, d5, d9, d11, d12, d15, d17, d21, d22, d24
     // A interseção dos conjuntos é d9, d11, d12, d17 e d21
 
+    // Novamente, prepara o vetor a ser passado
     vDocumentos.clear();
     for (set<string> conjunto : vConjuntos) {
         for (string documento : conjunto) {
@@ -74,6 +81,8 @@ TEST_CASE("set<string> intersecao(vector <string>& setDocs, int wordsAmount)") {
     CHECK(resultado == set<string>{"d9.txt", "d11.txt", "d12.txt", "d17.txt", "d21.txt"});
 }
 
+// Este teste assume que na pasta onde o teste é executado há uma pasta ./documentos
+// idêntica à que foi usada durante a sua implementação.
 TEST_CASE("set<string> Indice_Invertido::pesquisa(string entrada)"){
     Indice_Invertido google;
     google.constroiIndice(); 
