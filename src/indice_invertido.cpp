@@ -83,30 +83,33 @@ set<string> Indice_Invertido::pesquisa(string entrada){
     int nPalavras = 0;
     vector<string> palavraSepara;
     istringstream tokenizer { entrada };
-    //string vazia para ser usada na comparação
-    string token;
-
-    while (tokenizer >> token){
-    token = normalizar(token);
-    if(token.size() > 0){
+    //String vazia para ser usada na comparação
+    string aux;
+    //Separa a frase em palavras e insere no vetor palavraSepara
+    while (tokenizer >> aux){
+    aux = normalizar(aux);
+    if(aux.size() > 0){
         nPalavras++;
-        palavraSepara.push_back(token);
+        palavraSepara.push_back(aux);
     }
     }
+    //Se não há palavras válidas, lança uma exceção
     if (nPalavras == 0)
         throw excecaoPesquisaVazia{};
     
     vector<set<string>> vConjuntos;
     vector<string> vDocumentos;
-    for(string s : palavraSepara){
-        auto z = busca(s);
-        vConjuntos.push_back(z);
+    //Para cada palavra do vetor, busca seu índice invertido
+    for(string palavraChave : palavraSepara){
+        auto indiceChave = busca(palavraChave);
+        vConjuntos.push_back(indiceChave);
     }
     for (set<string> conjunto : vConjuntos) {
         for (string palavra : conjunto) {
             vDocumentos.push_back(palavra);
         }
     }
+    //O resultado são todos os documentos que possuem todas as palavras pesquisadas
     auto resultado = intersecao(vDocumentos, nPalavras);
 
     return resultado;
