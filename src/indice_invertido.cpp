@@ -26,10 +26,10 @@ void Indice_Invertido::constroiIndice(){
                 inserir(normalizar(palavra), dir_entry.path().filename());
         }
     } catch (filesystem::filesystem_error e) {
-        cout << "Exceção ao abrir e explorar a pasta \"./documentos\":   " << e.what() << endl;
+        cerr << "Exceção ao abrir e explorar a pasta \"./documentos\":   " << e.what() << endl;
         exit(1);
     } catch (ifstream::failure e) {
-        cout << "Exceção ao ler arquivo:   " << e.what() << endl;
+        cerr << "Exceção ao ler arquivo:   " << e.what() << endl;
         exit(2);
     }
 }
@@ -68,7 +68,7 @@ set <string> intersecao(vector <string>& setDocs, int wordsAmount){
             }
         }
     } catch (filesystem::filesystem_error e) {
-        cout << "Exceção ao abrir e explorar a pasta \"./documentos\":   " << e.what() << endl;
+        cerr << "Exceção ao abrir e explorar a pasta \"./documentos\":   " << e.what() << endl;
         exit(1);
     }
 

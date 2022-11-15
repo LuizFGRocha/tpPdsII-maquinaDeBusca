@@ -17,7 +17,7 @@ int main() {
     try {
         x = google.pesquisa(entrada);
     } catch (excecaoPesquisaVazia e) {
-        cout << "A frase a ser pesquisada não contém caracteres alfabéticos." << endl;
+        cerr << "A frase a ser pesquisada não contém caracteres alfabéticos." << endl;
     }
     
     for(auto docName : x){
