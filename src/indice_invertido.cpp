@@ -29,7 +29,7 @@ void Indice_Invertido::constroiIndice(){
         cout << "Exceção ao abrir e explorar a pasta \"./documentos\":   " << e.what() << endl;
         exit(1);
     } catch (ifstream::failure e) {
-        cout << "Exceção ao ler arquivo: " << e.what() << endl;
+        cout << "Exceção ao ler arquivo:   " << e.what() << endl;
         exit(2);
     }
 }
@@ -86,13 +86,16 @@ set<string> Indice_Invertido::pesquisa(string entrada){
     //string vazia para ser usada na comparação
     string token;
 
-   while (tokenizer >> token){
+    while (tokenizer >> token){
     token = normalizar(token);
     if(token.size() > 0){
         nPalavras++;
         palavraSepara.push_back(token);
     }
-   }
+    }
+    if (nPalavras == 0)
+        throw excecaoPesquisaVazia{};
+    
     vector<set<string>> vConjuntos;
     vector<string> vDocumentos;
     for(string s : palavraSepara){
@@ -104,6 +107,7 @@ set<string> Indice_Invertido::pesquisa(string entrada){
             vDocumentos.push_back(palavra);
         }
     }
-   auto resultado = intersecao(vDocumentos, nPalavras);
-   return resultado;
+    auto resultado = intersecao(vDocumentos, nPalavras);
+
+    return resultado;
 }
