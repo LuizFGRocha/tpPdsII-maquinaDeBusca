@@ -23,7 +23,7 @@ void Indice_Invertido::constroiIndice(){
         for (auto const& dir_entry : filesystem::directory_iterator{documentos}) {
             ifstream fin(dir_entry.path());
             while(fin >> palavra)
-                inserir(normalizar(palavra), dir_entry.path().filename());
+                inserir(normalizar(palavra), dir_entry.path().filename().string());
         }
     } catch (filesystem::filesystem_error e) {
         cerr << "Exceção ao abrir e explorar a pasta \"./documentos\":   " << e.what() << endl;
@@ -57,7 +57,7 @@ set <string> intersecao(vector <string>& setDocs, int wordsAmount){
     set <string> setIntersecao;
     try {
         for (auto const& arquivo : filesystem::directory_iterator{"./documentos"})
-            docs.insert(pair <string, int> (arquivo.path().filename(), 0));
+            docs.insert(pair <string, int> (arquivo.path().filename().string(), 0));
             
         for(auto value : setDocs){
             for(auto it = docs.begin(); it != docs.end(); it++){

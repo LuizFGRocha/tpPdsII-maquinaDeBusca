@@ -21,11 +21,6 @@
 *.a
 *.lib
 
-# Executables
-*.exe
-*.out
-*.app
-
 # Vscode settings
 .vscode/
 
@@ -42,3 +37,8 @@
 *.lo
 *.obj
 *.o
+
+# Executables
+*.out
+*.app
+*.exe
