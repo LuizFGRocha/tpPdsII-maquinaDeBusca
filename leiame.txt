@@ -13,7 +13,7 @@ a lista de resultados. Caso contrário, a execução termina sem imprimir nada n
 Algumas exceções podem ocorrer, como a pasta "./documentos" não estar presente. Nesses casos, o programa
 imprimirá uma mensagem de erro no console e interromperá a execução.
 
-Para compilar e executar os testes, basta digitar "make testes/teste" no termianl para compilar e depois
+Para compilar e executar os testes, basta digitar "make testes/teste" no terminal para compilar e depois
 "./testes/teste" para executar.
 
 O makefile assume um ambiente computacional similar ao utilizado no desenvolvimento do programa.
