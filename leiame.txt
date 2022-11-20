@@ -1,19 +1,26 @@
-Ambiente computacional utilizado:
-  O programa foi desenvolvido utilizando o WSL com kernel na versão 5.10.16.3-microsoft-standard-WSL2
-  e com a distribuição Ubuntu 20.04.5 LTS.
+Ambiente computacional utilizado durante o desenvolvimento:
+  WSL com kernel na versão 5.10.16.3-microsoft-standard-WSL2 e com a distribuição Ubuntu 20.04.5 LTS.
   
-Compilador: g++ (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0
+Compilador utilizado durante o desenvolvimento: g++ (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0
 
 O programa utiliza a biblioteca <filesystem>, presente na ISO desde o padrão C++17. O makefile passa
 as flags necessárias para que a compilação seja feita com sucesso no ambiente computacional utilizado.
 
-Para compilar e executar o arquvio main, basta digitar "make" no terminal para compilar e depois "./main"
-para executar. A frase a ser pesquisada deve ser inserida no console. Caso exista, o programa imprimirá
-a lista de resultados. Caso contrário, a execução termina sem imprimir nada na tela. 
-Algumas exceções podem ocorrer, como a pasta "./documentos" não estar presente. Nesses casos, o programa
-imprimirá uma mensagem de erro no console e interromperá a execução.
+Para compilar e executar o arquvio main:
+  1) Digite no "make" no terminal.
+  2) Digite "./main" no terminal.
+  3) Digite a frase a ser pesquisada.
+  4) Caso não ocorra nenhuma exceção, o programa imprimirá, na ordem lexicográfica, o nome de todos 
+  os arquivos que têm todas as palavras e terminará a execução.
+  5) Caso ocorra alguma exceção (ao abrir a pasta "./documentos", ao utilizar a stream da qual os 
+  dados são extraídos dos documentos ou ao encontrar as palavras normalizadas a serem buscadas) o
+  programa imprimirá detalhes sobre a exceção no console e interromperá a execução.
 
-Para compilar e executar os testes, basta digitar "make testes/teste" no terminal para compilar e depois
-"./testes/teste" para executar.
+Para compilar e executar os testes:
+  1) Digite "make testes/teste" no terminal.
+  2) Digite "./testes/teste".
+  3) Os testes serão executados.
 
-O makefile assume um ambiente computacional similar ao utilizado no desenvolvimento do programa.
+Obs: o programa pôde ser compilado, executado e testado com sucesso no Windows 11 versão 22H2 
+utilizando o compilador "g++.exe (Rev6, Built by MSYS2 project) 12.2.0" e seguindo exatamente os 
+mesmos passos listados anteriormente.
