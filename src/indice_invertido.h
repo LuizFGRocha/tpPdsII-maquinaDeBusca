@@ -12,6 +12,11 @@ struct excecaoPesquisaVazia{};
 class Indice_Invertido {
 
     public:
+
+    /// @brief Constrói o índice invertido a partir dos documentos na pasta
+    /// ./documentos. Cada palavra contida na pasta como um todo é associada
+    /// a um conjunto formado pelos nomes dos documentos que a possuem.
+    Indice_Invertido();
     
     /// @brief Busca os documentos em ./documentos que contenham dada palavra.
     /// @param palavra Palavra a ser procurada nos documentos.
@@ -24,11 +29,6 @@ class Indice_Invertido {
     /// @param palavra Palavra a ser inserida.
     /// @param documento Documento que contém a palavra.
     void inserir(string palavra, string documento);
-
-    /// @brief Constrói o índice invertido a partir dos documentos na pasta
-    /// ./documentos. Cada palavra contida na pasta como um todo é associada
-    /// a um conjunto formado pelos nomes dos documentos que a possuem.
-    void constroiIndice();
     
     /// @brief Pesquisa a string fornecida.
     /// @param entrada String a ser pesquisada. Deve ter pelo menos uma palavra

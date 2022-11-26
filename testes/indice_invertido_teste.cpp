@@ -37,7 +37,6 @@ TEST_CASE("set<string> busca(string palavra)") {
 // idêntica à que foi usada durante a sua implementação.
 TEST_CASE("set<string> intersecao(vector <string>& setDocs, int wordsAmount)") {
     Indice_Invertido google;
-    google.constroiIndice();
 
 
     vector<set<string>> vConjuntos;
@@ -84,8 +83,7 @@ TEST_CASE("set<string> intersecao(vector <string>& setDocs, int wordsAmount)") {
 // Este teste assume que na pasta onde o teste é executado há uma pasta ./documentos
 // idêntica à que foi usada durante a sua implementação.
 TEST_CASE("set<string> Indice_Invertido::pesquisa(string entrada)"){
-    Indice_Invertido google;
-    google.constroiIndice(); 
+    Indice_Invertido google; 
 
     //Testa se o programa lança uma exceção no caso de não haver nenhum caractere válido para a pesquisa
     CHECK_THROWS(google.pesquisa("- ! 9 8 7"));
