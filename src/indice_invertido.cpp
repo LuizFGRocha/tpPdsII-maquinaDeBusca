@@ -35,18 +35,11 @@ Indice_Invertido::Indice_Invertido(){
 }
 
 string normalizar(string palavra) {
-    string comAcentoOuCedilha = "ÄÅÁÂÀÃäáâàãÉÊËÈéêëèÍÎÏÌíîïìÖÓÔÒÕöóôòõÜÚÛüúûùÇç";
-    string semAcentoOuCedilha = "aaaaaaaaaaaeeeeeeeeiiiiiiiioooooooooouuuuuuucc";
-
+    
     string normalizada;
-    int index;
-    for (auto itr = palavra.begin(); itr != palavra.end(); itr++) {
-        if (index = comAcentoOuCedilha.find(*itr) != string::npos) {
-            normalizada.push_back(semAcentoOuCedilha[index]);
-            itr++;
-        } else if (tolower(*itr) >= 97 && tolower(*itr) <= 122){
-            normalizada.push_back(tolower(*itr));
-        }
+    for (char c : palavra) {
+        if (tolower(c) >= 97 && tolower(c) <= 122)
+            normalizada.push_back(tolower(c));
     }
 
     return normalizada;
