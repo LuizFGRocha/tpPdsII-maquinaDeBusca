@@ -1,13 +1,14 @@
 Ambiente computacional utilizado durante o desenvolvimento:
   WSL com kernel na versão 5.10.16.3-microsoft-standard-WSL2 e com a distribuição Ubuntu 20.04.5 LTS.
   
-Compilador utilizado durante o desenvolvimento: g++ (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0
+Compilador utilizado durante o desenvolvimento: 
+  g++ (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0
 
 O programa utiliza a biblioteca <filesystem>, presente na ISO desde o padrão C++17. O makefile passa
 as flags necessárias para que a compilação seja feita com sucesso no ambiente computacional utilizado.
 
 Para compilar e executar o arquvio main:
-  1) Digite no "make" no terminal.
+  1) Digite "make" no terminal.
   2) Digite "./main" no terminal.
   3) Digite a frase a ser pesquisada.
   4) Caso não ocorra nenhuma exceção, o programa imprimirá, na ordem lexicográfica, o nome de todos 
